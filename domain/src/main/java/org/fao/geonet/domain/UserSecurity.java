@@ -3,7 +3,6 @@ package org.fao.geonet.domain;
 import org.jdom.Element;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Transient;
@@ -30,8 +29,8 @@ public class UserSecurity extends GeonetEntity implements Serializable {
      *
      * @return the hashed password
      */
-    @Column(nullable = true, length = 120)
-    @Nullable
+    @Column(nullable = false, length = 120)
+    @Nonnull
     public char[] getPassword() {
         return _password == null ? new char[0] : _password.clone();
     }
@@ -43,9 +42,9 @@ public class UserSecurity extends GeonetEntity implements Serializable {
      * @return this UserSecurity object
      */
     public
-    @Nullable
-    UserSecurity setPassword(@Nullable char[] password) {
-        this._password = password == null ? new char[0] : password.clone();
+    @Nonnull
+    UserSecurity setPassword(@Nonnull char[] password) {
+        this._password = password.clone();
         return this;
     }
 

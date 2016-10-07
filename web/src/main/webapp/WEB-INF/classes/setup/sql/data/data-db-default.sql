@@ -680,6 +680,8 @@ INSERT INTO Users (id, username, password, name, surname, profile, kind, organis
 INSERT INTO Address (id, address, city, country, state, zip) VALUES  (1, '', '', '', '', '');
 INSERT INTO UserAddress (userid, addressid) VALUES  (1, 1);
 
+-- === Workaround for Oracle <-> georchestra ldap configuration
+ALTER TABLE Users modify(password NULL);
 
 -- ======================================================================
 -- === Table: MetadataURNTemplates
