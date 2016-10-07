@@ -683,6 +683,10 @@ INSERT INTO UserAddress (userid, addressid) VALUES  (1, 1);
 -- === Workaround for Oracle <-> georchestra ldap configuration
 ALTER TABLE Users modify(password NULL);
 
+-- === Add missing sequence when creating from scratch
+CREATE SEQUENCE  HIBERNATE_SEQUENCE  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 299780 CACHE 20 NOORDER  NOCYCLE ;
+
+
 -- ======================================================================
 -- === Table: MetadataURNTemplates
 -- ======================================================================
